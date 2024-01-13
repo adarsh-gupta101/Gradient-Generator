@@ -1,0 +1,102 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.gradient-overlay {
+  top:20px;
+  width: 80vw;
+  min-height: 200px;
+  margin-top: 10px;
+  margin: 10px;
+  outline: 5px solid #eee6e6;
+  outline-offset: 10px;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  background: linear-gradient(to right, #ff6e7f, #bfe9ff);
+}
+
+button {
+  width: 170px;
+  height: 50px;
+  background-color: #000000;
+  border: none;
+  border-radius: 50px;
+  margin: 15px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  box-shadow: 1px 10px 10px 10px #ffffff;
+}
+
+/* display the code */
+
+.resultant {
+  background-color: #e5e5e5;
+  border: none;
+  border-radius: 5px;
+  margin: 15px;
+  padding: 15px;
+  color: rgb(9, 2, 2);
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.previous {
+  width: 90%;
+  height: 100vh;
+  overflow: scroll;
+  margin: auto;
+  height: fit-content;
+}
+
+.previous::-webkit-scrollbar{
+  display: none;
+}
+.previous__gradients {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  font-family: "Montserrat", sans-serif;
+  align-items: start;
+  justify-content: start;
+  padding: 10px;
+}
+
+.previous__gradient {
+  width: 80px;
+  height: 40px;
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  background: linear-gradient(to right, #ff6e7f, #bfe9ff);
+  margin: 10px;
+  padding: 20px;
+  color: rgb(9, 2, 2);
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+}

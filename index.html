@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Gradient Card</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", ChangeGradient);
+      let data;
+      
+      function ChangeGradient() {
+        var overlay = document.querySelector(".gradient-overlay");
+        data = generateRandomGradient();
+        overlay.style.background = data;
+        
+        var resultant = document.querySelector(".resultant");
+        resultant.innerHTML = data;
+        
+        var previous = document.querySelector(".previous__gradients");
+        previous.innerHTML += `<div class="previous__gradient" style="background: ${data}"></div>`;
+      }
+
+      // when clicked on any gradient, it will be copied to clipboard
+      document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("previous__gradient")) {
+          var color = e.target.style.background;
+          var textarea = document.createElement("textarea");
+          textarea.value = color;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand("copy");
+          textarea.remove();
+          alert("Copied to clipboard");
+        }
+      });
+      
+
+      function generateRandomGradient() {
+        var color1 = randomColor();
+        var color2 = randomColor();
+        return `linear-gradient(to right, ${color1}, ${color2})`;
+      }
+
+      function randomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>
+  </head>
+  <body>
+
+    <div class="gradient-overlay"></div>
+
+    <button onclick="ChangeGradient();">Generate</button>
+
+    <div class="resultant"></div>
+    <!-- previous generated gradients -->
+    <div class="previous">
+      <h2>Previous Gradients</h2>
+      <div class="previous__gradients"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
